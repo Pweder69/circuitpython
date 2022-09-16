@@ -1,4 +1,3 @@
-import time
 import board
 import time
 import pwmio
@@ -15,15 +14,19 @@ btn2 = DigitalInOut(board.D9)
 btn2.direction = Direction.INPUT
 btn2.pull = Pull.UP
 
+con180 =lambda x:10 if (x>=180 or x<=0) else x 
+
 my_servo = servo.Servo(pwm)
 angle = 0
 
 while True:
     if not  btn2.value:
-        my_servo.angle += 5
+        angle += con180(angle+1)
+        my_servo.angle = angle
         
     if not btn1.value:
-        my_servo.angle -= 5     
+        angle -= con180(angle+1)
+        my_servo.angle = angle
         
 
     time.sleep(0.1) # sleep for debounce
