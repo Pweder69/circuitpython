@@ -9,11 +9,12 @@ dot.brightness = 0.5
 
 sonar = adafruit_hcsr04.HCSR04(trigger_pin=board.D5, echo_pin=board.D6)
 
-
-
-
 def getRgb():
     color = [0,0,0]
+    if dis > 35:
+        color[0] = 0                                    #R
+        color[1] = 255                                  #G
+        color[2] = 0                                    #B
     if dis < 5:
         color[0] = 255                                  #R
         color[1] = 0                                    #G
@@ -24,11 +25,10 @@ def getRgb():
         color[2] = simpleio.map_range(dis,5,20,0,255)   #B
     elif dis <=35:
         color[0] = 0                                    #R 
-        color[1] = simpleio.map_range(dis,20,35,0,255)   #G
-        color[2] = simpleio.map_range(dis,20,35,255,0)   #B
+        color[1] = simpleio.map_range(dis,20,35,0,255)  #G
+        color[2] = simpleio.map_range(dis,20,35,255,0)  #B
     return color
 ## manages the color and apropriatly assigns the color values based on the distance. 
-
 
 while True:
     try:
@@ -38,9 +38,7 @@ while True:
     except RuntimeError:
         print("Retrying!")
     time.sleep(.01)
-    
-
-
+    #outputs the values to the neo pixle 
 
 '''
 Use the HC-SR04 to measure the distance to an object and print that out to your serial monitor or LCD in cm.
