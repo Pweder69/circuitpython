@@ -3,13 +3,13 @@
 
 ## Table of Contents
 
-* [Hello_CircuitPython](#Hello_CircuitPython)
+* [Hello_CircuitPython](#hello_circuitpython)
 
-* [CircuitPython_Servo](#CircuitPython_Servo)
+* [CircuitPython_Servo](#circuitpython_servo)
 
-* [CircuitPython_LCD](#CircuitPython_LCD)
+* [CircuitPython_LCD](#circuitpython_lcd)
 
-* [NextAssignmentGoesHere](#NextAssignment)
+* [Distance_Sensor](#circuitpython_distance-sensor)
 
 ---
 
@@ -224,7 +224,7 @@ Overall this asigment was usefull when continuing to implement new/old features 
   
   
 
-## CircuitPython_Distance sensor
+## CircuitPython_LCD 
 In this asigment we were tasked with changing the the number printed to the LCD with a button makeing the value go up and if the switch is flipped make the value go down.
   
 
