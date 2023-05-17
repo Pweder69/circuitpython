@@ -11,6 +11,8 @@
 
 * [Distance_Sensor](#circuitpython_distance-sensor)
 
+* [Motor_Control](#motor-control)
+
 ---
 
   
