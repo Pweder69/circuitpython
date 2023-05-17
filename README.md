@@ -51,7 +51,7 @@ Credit: https://github.com/Jpark27614
   
 
 ### Wiring
-The Neopixle didnt require wiring becasue it was a built in LEDto the board 
+The Neopixle didn't require wiring because it was a built in LEDto the board 
 
   
 
@@ -129,7 +129,7 @@ while True:
   
 
 ### Reflection
-This asigment was a good introduction into how buttons work and how the overall formatting/syntax of python contrasts with C++. It was also a good way to see elements of the arduino work space such as pin definitions.
+This assignment was a good introduction into how buttons work and how the overall formatting/syntax of python contrasts with C++. It was also a good way to see elements of the arduino work space such as pin definitions.
   
 ***
 ## CircuitPython_Distance sensor
@@ -151,7 +151,7 @@ from lcd.i2c_pcf8574_interface import I2CPCF8574Interface
 
 i2c = board.I2C()
 lcd = LCD(I2CPCF8574Interface(i2c, 0x3f), num_rows=2, num_cols=16)
-#object declerations 
+#object decelerations 
 
 btn = DigitalInOut(board.D8)
 btn.direction = Direction.INPUT
@@ -186,7 +186,7 @@ def buttonManager():
         #changes the value(printedVal) based on switchManager()/switch
         printedVal += changeVal
         btnState = True
-    #controlls the button press as to only allow one activation after press
+    #controls the button press as to only allow one activation after press
 
 def lcdUpdate(change,print):
     lcd.print(f" Value:{print}\n switch:{change}")
@@ -218,14 +218,14 @@ Pictures / Gifs of your work should go here. You need to communicate what your t
   
 
 ### Reflection
-Overall this asigment was usefull when continuing to implement new/old features into python. Some include the map function which was vital when creating this code. I learned new things such as how to read values from the ultrasonic sensor, how to use F strings and sort your code outside of the TRUE loop.
+Overall this assignment was useful when continuing to implement new/old features into python. Some include the map function which was vital when creating this code. I learned new things such as how to read values from the ultrasonic sensor, how to use F strings and sort your code outside of the TRUE loop.
 *** 
 
   
   
 
 ## CircuitPython_LCD 
-In this asigment we were tasked with changing the the number printed to the LCD with a button makeing the value go up and if the switch is flipped make the value go down.
+In this assignment we were tasked with changing the the number printed to the LCD with a button making the value go up and if the switch is flipped make the value go down.
   
 
 ### code
@@ -278,7 +278,7 @@ def buttonManager():
         #changes the value(printedVal) based on switchManager()/switch
         printedVal += changeVal
         btnState = True
-    #controlls the button press as to only allow one activation after press
+    #controls the button press as to only allow one activation after press
 
 def lcdUpdate(change,print):
     lcd.print(f" Value:{print}\n switch:{change}")
@@ -309,14 +309,38 @@ while True:
   
 
 ### Wiring
-<img src="https://user-images.githubusercontent.com/112962227/193609909-9bf87edb-7455-47b3-aca5-481af60a4af1.png" width =400>
+<img src="https://user-images.githubusercontent.com/112962227/193609909-9bf87edb-7455-47b3-aca5-481af60a4af1.png" width =300>
   
 
 ### Reflection
-Good reintoduction into lcd screens and managing the object. Reading the documentation on the object was very usefull to understand what was actually going on as i had issues with clearing the LCD at the right time.
+Good reintroduction into lcd screens and managing the object. Reading the documentation on the object was very useful to understand what was actually going on as i had issues with clearing the LCD at the right time.
+
+## Motor control 
+In this assignment we were tasked with controlling a motor using a transistor. We would control this motor using output gained from a Potentiometer.
+
+### code 
+```python
+import board
+from analogio import AnalogIn, AnalogOut 
+import simpleio
+import pwmio
+
+control = pwmio.PWMOut(board.D8, duty_cycle = 2 ** 15)
 
 
+pot = AnalogIn(board.A0)
 
+while True:
+    print(int(pot.value))
+    control.duty_cycle = simpleio.map_range(pot.value,0,65355,0,255)
 
+# by Paul weder
+```
+
+### Evidence
+![Anton Weder](https://imgur.com/a/GpBM3AT)
+
+### Reflection 
+Overall this assignment was a good way for me to learn how transistors work and how not to mistake it for a temperature sensor. The code was very easy as it was just a mapping of the pot to the pwm output. Troubles were with figuring out the order of the in my case MOSFET transistor and how to read documentation that wasn't created by Adafruit especially on gate drain and source the 3 pins coming from the transistor.
 
 [this directory of all students!](https://github.com/chssigma/Class_Accounts).
