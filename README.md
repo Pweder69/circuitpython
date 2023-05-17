@@ -340,7 +340,12 @@ while True:
 ```
 
 ### Evidence
-![Anton Weder](https://imgur.com/a/GpBM3AT)
+<video width="320" height="240" controls>
+  <source src="https://i.imgur.com/bf8oa1s.mp4" type="video/mp4">
+</video>
+
+[Anton_Weder](https://github.com/aweder05/CircuitPython#CircuitPython_Servo)
+
 
 ### Reflection 
 Overall this assignment was a good way for me to learn how transistors work and how not to mistake it for a temperature sensor. The code was very easy as it was just a mapping of the pot to the pwm output. Troubles were with figuring out the order of the in my case MOSFET transistor and how to read documentation that wasn't created by Adafruit especially on gate drain and source the 3 pins coming from the transistor.
